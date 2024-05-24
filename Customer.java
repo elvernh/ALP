@@ -9,6 +9,6 @@ public class Customer extends User {
     public Customer(String name) {
         super(name);
         role = "customer";
-        points = 0;
+        points = 10;
     }
 }
