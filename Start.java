@@ -7,7 +7,7 @@ public class Start {
         String opsi, opsi2;
         do {
             System.out.println(" Pengen makan / minum? Yophee aja!");
-            // if(){
+            // if(ga ada akun){
             System.out.print("""
                     Eitsss... Sebelum pakai Yophee, masukin akunmu dulu!
                     [1] Buat akun (Kalo ga punya akun)
