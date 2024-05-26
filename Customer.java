@@ -6,8 +6,8 @@ public class Customer extends User {
     int saldo;
     LinkedList<Voucher> listVoucher = new LinkedList<Voucher>();
     
-    public Customer(String name) {
-        super(name);
+    public Customer(String name, String password) {
+        super(name, password);
         role = "customer";
         points = 0;
     }

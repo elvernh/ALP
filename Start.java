@@ -5,6 +5,7 @@ public class Start {
 
     void Start() {
         String opsi, opsi2;
+        // LoginRegister lr = new LoginRegister(ArrayList<User>);
         do {
             System.out.println(" Pengen makan / minum? Yophee aja!");
             // if(ga ada akun){
@@ -19,9 +20,11 @@ public class Start {
 
             switch(opsi){
                 case "1":
+                // lr.register();
                 break;
 
                 case "2":
+                // lr.login();
                 break;
 
                 case "3":
