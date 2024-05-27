@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 public class MenuCustomer {
-    public void Menu(User curUser, LinkedList<User> listuser, LoginRegister lr) {
+    public void menu(User curUser, LinkedList<User> listuser, LoginRegister lr) {
         
     }
 }

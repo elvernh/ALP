@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class MenuSeller {
     Scanner sc = new Scanner(System.in);
-    int opt;
+   
 
-    public void Menu(User curUser, LinkedList<User> listuser, LoginRegister lr) {
+    public void menu(User curUser, LinkedList<User> listuser, LoginRegister lr) {
         while (true) {
             System.out.println("====Welcome Seller " + curUser.username + "====");
             System.out.println("Jumlah Order hari ini : ");
@@ -16,21 +16,9 @@ public class MenuSeller {
             System.out.println("4. Hapus menu");
             System.out.println("5. Proses menu");
             System.out.println("choose = ");
-            while (true) {
-                try {
-                    opt = sc.nextInt();
-                    if (opt >= 1 && opt <= 5) {
-                        break;
-                    } else {
-                        continue;
-                    }
-                } catch (Exception e) {
-                    // TODO: handle exception
-                    sc.next();
-                    System.out.println(e);
-                    continue;
-                }
-            }
+
+            int opt = sc.nextInt();
+
             if (opt == 1) {
                 addMenu(curUser);
 
@@ -77,7 +65,7 @@ public class MenuSeller {
             produk = new Makanan(nama, desc, price, kategori);
             ((Seller) curUser).addProduct(produk);
         } else if (opt == 2) {
-           produk = new Minuman(nama, desc, price, kategori);
+            produk = new Minuman(nama, desc, price, kategori);
             ((Seller) curUser).addProduct(produk);
         }
     }
@@ -90,8 +78,8 @@ public class MenuSeller {
     }
 
     public void seeMenu(User curUser) {
-            System.out.println(((Seller) curUser).getListProduct().size());
-        
+        System.out.println(((Seller) curUser).getListProduct().size());
+
     }
 
     public void updateMenu() {

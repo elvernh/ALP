@@ -27,10 +27,12 @@ public class LoginRegister {
                 if (curUser.role.equals("admin")) {
 
                 } else if (curUser.role.equals("customer")) {
-                    menuCustomer.Menu(curUser, listuser, null);
+                    menuCustomer.menu(curUser, listuser, null);
                 } else if (curUser.role.equals("penjual")) {
-                    menuSeller.Menu(curUser, listuser, null);
+                    menuSeller.menu(curUser, listuser, null);
                 }
+            }else {
+                System.out.println("null");
             }
         }
     }
@@ -75,13 +77,13 @@ public class LoginRegister {
         if (opt == 1) {
             role = "customer";
         } else if (opt == 2) {
-            role = "seller";
+            role = "penjual";
         }
         System.out.println("email :");
         String email = s.next();
         System.out.println("Password : ");
         String pwd = s.next();
-
+        s.close();
         User user = new User(uname, role, pwd, email);
         return user;
 
