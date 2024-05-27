@@ -5,6 +5,8 @@ public class Start {
 
     void Homescreen() {
         String opsi, opsi2;
+        LoginRegister lr = new LoginRegister();
+        lr.userScreen();
         do {
             System.out.printf("""
                     Halo, User//ini nanti ganti pake nama user yg login

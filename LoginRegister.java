@@ -1,22 +1,71 @@
 import java.util.*;
+
 public class LoginRegister {
     String username, password;
     boolean accountFound = false;
     Scanner sc = new Scanner(System.in);
-    public void register(ArrayList<User> user){
+    private LinkedList<User> listUser = new LinkedList<>();
 
+    public void userScreen() {
+        String opsi;
+        do {
+            for (User user : listUser) {
+                System.out.print(user.getName());
+                System.out.println(user.getPassword());
+            }
+            System.out.println("Mau cari makan / minum? Yophee aja!");
+            System.out.print("""
+                    [1] Buat akun
+                    [2] Masuk ke akun
+                    [3] Keluar
+                    Opsi:
+                    """);
+            opsi = sc.next() + sc.nextLine();
+
+            switch (opsi) {
+                case "1":
+                    register();
+                    break;
+
+                case "2":
+                    login();
+                    break;
+
+                case "3":
+                    System.out.println("Sampai jumpa kembali!");
+                    System.exit(0);
+                    break;
+            }
+        } while (true);
     }
 
-    public void login(ArrayList<User> user){
+    public void register() {
+        String nama, password;
+        int temp = 0;
         System.out.print("Masukan username: ");
-        username = sc.next() + sc.nextLine();
-        System.out.print("Masukan password: ");
-        password = sc.next() + sc.nextLine();
-        for (int i = 0; i < user.size(); i++) {
-            if(user.get(i).getName() == username && user.get(i).getPassword() == password){
-                if(accountFound == true) System.out.println("Akun ditemukan!"); break;
+        nama = sc.next() + sc.nextLine();
+        nama.toCharArray();
+        for (int i = 0; i < nama.length(); i++) {
+            if (nama.charAt(i) >= 97 && nama.charAt(i) <= 122 || nama.charAt(i) >= 48 && nama.charAt(i) <= 57) {
+                temp++;
+                if (temp == nama.length()) {
+                    System.out.print("Masukan password: ");
+                    password = sc.next() + sc.nextLine();
+                    listUser.add(new User(nama, password));
+                    System.out.println("Akun berhasil dibuat!");
+                    break;
+                }
+            } else if (nama.charAt(i) <= 97 && nama.charAt(i) >= 122 || nama.charAt(i) <= 48 && nama.charAt(i) >= 57 || nama.charAt(i) == 0) {
+                System.out.println("Username tidak boleh memiliki simbol / huruf kapital / spasi!");
+                break;
+            } else {
+                System.out.println("Username tidak boleh memiliki simbol / huruf kapital! / spasi");
+                break;
             }
         }
-        if(accountFound == false) System.out.println("Username / password salah, coba lagi");
+    }
+
+    public void login() {
+
     }
 }
