@@ -1,5 +1,8 @@
 public class makanan extends Produk {
-    public makanan(String name, int price) {
+    private String kategori;
+
+    public makanan(String name, int price, String kategori) {
        super(name, price);
+       this.kategori = kategori;
     }
 }
