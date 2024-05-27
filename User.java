@@ -1,8 +1,13 @@
 public class User {
-    protected String name;
+    protected String username;
+    
     protected String role;
-
-    public User(String name) {
-        this.name = name;
+    protected String pwd;
+    protected String email;
+    public User(String username, String role, String pwd, String email) {
+        this.username = username;
+        this.role = role;
+        this.pwd = pwd;
+        this.email = email;
     }
 }

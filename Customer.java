@@ -2,12 +2,12 @@ import java.util.LinkedList;
 
 public class Customer extends User {
     int points;
-    String email;
+    
     int saldo;
     LinkedList<Voucher> listVoucher = new LinkedList<Voucher>();
     
-    public Customer(String name) {
-        super(name);
+    public Customer(String username, String role, String pwd, String email) {
+        super(username, role, pwd, email);
         role = "customer";
         points = 10;
     }
