@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class Customer extends User {
     int points;
-    
+    private String alamat;
     int saldo;
     LinkedList<Voucher> listVoucher = new LinkedList<Voucher>();
     

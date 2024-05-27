@@ -1,17 +1,17 @@
 import java.util.LinkedList;
 
 public class Queue {
-     private LinkedList<Object> list = new LinkedList<Object>();
+     private LinkedList<Order> list = new LinkedList<Order>();
     
-     public void enqueue(Object data) {
+     public void enqueue(Order data) {
          list.addLast(data);
      }
      
-     public Object dequeue() {
+     public Order dequeue() {
          return list.removeFirst();
      }
      
-     public Object peek() {
+     public Order peek() {
          return list.getFirst();
      }
      
