@@ -5,38 +5,7 @@ public class Start {
 
     void Start() {
         String opsi, opsi2;
-        // LoginRegister lr = new LoginRegister(ArrayList<User>);
         do {
-            System.out.println(" Pengen makan / minum? Yophee aja!");
-            // if(ga ada akun){
-            System.out.print("""
-                    Eitsss... Sebelum pakai Yophee, masukin akunmu dulu!
-                    [1] Buat akun (Kalo ga punya akun)
-                    [2] Masuk (Kalo udah punya akun)
-                    [3] Keluar
-                    Opsi:
-                    """);
-            opsi = sc.next();
-
-            switch(opsi){
-                case "1":
-                // lr.register();
-                break;
-
-                case "2":
-                // lr.login();
-                break;
-
-                case "3":
-                System.out.println("Sampai jumpa kembali!~");
-                System.exit(0);
-                break;
-
-                default:
-                System.out.println("Pilihan tidak valid! Masukin ulang dong");
-                    break;
-            }
-            // }else{
             System.out.printf("""
                     Halo, User//ini nanti ganti pake nama user yg login
                     Mau ngapain?
