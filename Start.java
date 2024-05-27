@@ -3,7 +3,7 @@ import java.util.*;
 public class Start {
     Scanner sc = new Scanner(System.in);
 
-    void Start() {
+    void Homescreen() {
         String opsi, opsi2;
         do {
             System.out.printf("""
@@ -58,7 +58,6 @@ public class Start {
                 System.out.println("Pilihan tidak valid! Masukin ulang dong");
                     break;
             }
-            // }
 
         } while (true);
     }
