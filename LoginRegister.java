@@ -7,7 +7,7 @@ public class LoginRegister {
     MenuAdmin menuAdmin = new MenuAdmin();
     MenuCustomer menuCustomer = new MenuCustomer();
     MenuSeller menuSeller = new MenuSeller();
-    
+
     public void menu() {
         // Mau Login atau Register
         Scanner s = new Scanner(System.in);
@@ -27,9 +27,9 @@ public class LoginRegister {
                 if (curUser.role.equals("admin")) {
 
                 } else if (curUser.role.equals("customer")) {
-
+                    menuCustomer.Menu(curUser, listuser, null);
                 } else if (curUser.role.equals("penjual")) {
-
+                    menuSeller.Menu(curUser, listuser, null);
                 }
             }
         }

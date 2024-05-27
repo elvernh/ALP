@@ -1,6 +1,6 @@
 public class Produk {
-    protected String name, desc;
-    protected int price;
+    String name, desc;
+    int price;
 
     public Produk(String name, String desc, int price) {
         this.name = name;

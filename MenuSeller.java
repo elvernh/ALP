@@ -90,8 +90,8 @@ public class MenuSeller {
     }
 
     public void seeMenu(User curUser) {
-        for (int i = 0; i < ((Seller) curUser).getListProduct().size(); i++) {
-        }
+            System.out.println(((Seller) curUser).getListProduct().size());
+        
     }
 
     public void updateMenu() {
