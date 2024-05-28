@@ -1,15 +1,19 @@
+import java.time.LocalDate;
 import java.util.LinkedList;
 
 public class Order {
     private String custName, sellerName, alamat;
     private int total;
     private LinkedList<Produk> listOrder = new LinkedList<Produk>();
-    private String date;
-    
-    public String getDate() {
+    private Boolean isDone;
+    LocalDate date;
+    public Order(String custName, String sellerName, String alamat, int total) {
+
+    }
+    public LocalDate getDate() {
         return date;
     }
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
     public String getAlamat() {

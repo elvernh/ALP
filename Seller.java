@@ -33,4 +33,12 @@ public class Seller extends User {
             System.out.println("Kategori : " + listProduct.get(i).getKategori());
         }
     }
+
+    public void deleteProduk(int delete) {
+        listProduct.remove(delete);
+    }
+
+    public void seeOrder() {
+        
+    }
 }

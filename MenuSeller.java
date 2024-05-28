@@ -23,19 +23,27 @@ public class MenuSeller {
 
             } else if (opt == 2) {
                 System.out.println("=======================");
-                System.out.println("Tambah Menu");
+                System.out.println("Lihat Menu");
                 System.out.println("=======================");
+                ((Seller) curUser).searchDetail();
             } else if (opt == 3) {
                 System.out.println("=======================");
-                System.out.println("Tambah Menu");
+                System.out.println("Update Menu");
                 System.out.println("=======================");
+                ((Seller) curUser).searchDetail();
+
             } else if (opt == 4) {
                 System.out.println("=======================");
-                System.out.println("Tambah Menu");
+                System.out.println("Hapus Menu");
                 System.out.println("=======================");
+                ((Seller) curUser).searchDetail();
+                System.out.print("pilih : ");
+                int delete = sc.nextInt();
+                ((Seller) curUser).deleteProduk(delete);               
+                System.out.println("Menu berhasil dihapus");
             } else if (opt == 5) {
                 System.out.println("=======================");
-                System.out.println("Tambah Menu");
+                System.out.println("Proses order");
                 System.out.println("=======================");
             }
         }
@@ -70,12 +78,7 @@ public class MenuSeller {
         System.out.println("berhasil menambahkan data");
     }
 
-    public void deleteMenu() {
-        System.out.println("=======================");
-        System.out.println("      Hapus Menu");
-        System.out.println("=======================");
-
-    }
+    
 
    
 

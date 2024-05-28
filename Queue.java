@@ -18,4 +18,8 @@ public class Queue {
      public boolean isEmpty() {
          return list.isEmpty();
      }
+
+     public int sizeQueue() {
+        return list.size();
+     }
 }
