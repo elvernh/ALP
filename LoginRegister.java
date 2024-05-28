@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class LoginRegister {
-    private LinkedList<User> listuser = new LinkedList<User>();
+    LinkedList<User> listuser = new LinkedList<User>();
 
     MenuAdmin menuAdmin = new MenuAdmin();
     MenuCustomer menuCustomer = new MenuCustomer();
@@ -16,7 +16,7 @@ public class LoginRegister {
             System.out.println("Menu");
             System.out.println("1. Login");
             System.out.println("2. Register");
-            System.out.print("pilih");
+            System.out.print("pilih : ");
             int choose = s.nextInt();
             if (choose == 1) {
                 curUser = login();
@@ -27,9 +27,9 @@ public class LoginRegister {
                 if (curUser.role.equals("admin")) {
 
                 } else if (curUser.role.equals("customer")) {
-                    menuCustomer.menu(curUser, listuser, null);
+                    menuCustomer.menu(curUser, listuser, this);
                 } else if (curUser.role.equals("penjual")) {
-                    menuSeller.menu(curUser, listuser, null);
+                    menuSeller.menu(curUser, listuser, this);
                 }
             }else {
                 System.out.println("null");
@@ -63,12 +63,11 @@ public class LoginRegister {
     }
 
     public User register() {
-
         Scanner s = new Scanner(System.in);
         System.out.println("Please Register");
-        System.out.println("Username :");
+        System.out.print("Username :");
         String uname = s.next();
-        System.out.println("role :");
+        System.out.print("role :");
         System.out.println("pilih ");
         System.out.println("1. customer");
         System.out.println("2. seller");
@@ -79,12 +78,17 @@ public class LoginRegister {
         } else if (opt == 2) {
             role = "penjual";
         }
-        System.out.println("email :");
+        System.out.print("email :");
         String email = s.next();
-        System.out.println("Password : ");
+        System.out.print("Password : ");
         String pwd = s.next();
-        s.close();
-        User user = new User(uname, role, pwd, email);
+        User user = null;
+        if(opt == 1) {
+            user = new Customer(uname, role, pwd, email);
+        }else if(opt == 2) {
+            user = new Seller(uname, role, pwd, email);        
+        }
+        
         return user;
 
     }
