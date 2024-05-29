@@ -55,9 +55,9 @@ public class MenuSeller {
         System.out.println("=======================");
         System.out.println("      Tambah Menu");
         System.out.println("=======================");
-        System.out.print("masukkan nama menu : ");
+        System.out.print("Masukkan nama menu : ");
         String nama = sc.next() + sc.nextLine();
-        System.out.println("pilih jenis menu : ");
+        System.out.println("Pilih jenis menu : ");
         System.out.println("1. Makanan");
         System.out.println("2. Minuman");
         System.out.print("pilih : ");
@@ -75,7 +75,7 @@ public class MenuSeller {
             produk = new Produk(nama, desc, price, kategori);
             ((Seller) curUser).addProduct(produk);
         }
-        System.out.println("berhasil menambahkan data");
+        System.out.println("Berhasil menambahkan data");
     }
 
     
