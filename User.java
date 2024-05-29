@@ -1,18 +1,14 @@
 public class User {
-    protected String name;
-    protected String password;
+    protected String username;
+    
     protected String role;
-
-    public User(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    protected String pwd;
+    protected String email;
+    public User(String username, String role, String pwd, String email) {
+        this.username = username;
+        this.role = role;
+        this.pwd = pwd;
+        this.email = email;
     }
 
     public String getPassword() {
