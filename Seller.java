@@ -39,6 +39,9 @@ public class Seller extends User {
     }
 
     public void seeOrder() {
-        
+        for (int i = 0; i < listOrder.sizeQueue(); i++) {
+           System.out.println("no : " + (i + 1));
+           
+        }
     }
 }

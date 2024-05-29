@@ -2,6 +2,7 @@ public class Produk {
     private String name, desc;
     private int price;
     private String kategori;
+    
 
     public Produk(String name, String desc, int price, String kategori) {
         this.name = name;

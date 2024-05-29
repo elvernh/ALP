@@ -88,7 +88,7 @@ public class LoginRegister {
         }else if(opt == 2) {
             user = new Seller(uname, role, pwd, email);        
         }
-        
+        listuser.add(user);
         return user;
 
     }

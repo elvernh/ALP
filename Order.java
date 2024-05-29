@@ -7,8 +7,13 @@ public class Order {
     private LinkedList<Produk> listOrder = new LinkedList<Produk>();
     private Boolean isDone;
     LocalDate date;
-    public Order(String custName, String sellerName, String alamat, int total) {
-
+    public Order(String custName, String sellerName, LinkedList<Produk> listOrder,  String alamat, int total) {
+        this.custName = custName;
+        this.sellerName = sellerName;
+        this.listOrder = listOrder;
+        this.alamat = alamat;
+        this.total = total;
+        isDone = false;
     }
     public LocalDate getDate() {
         return date;
