@@ -10,12 +10,12 @@ public class MenuSeller {
             System.out.println(curUser instanceof Seller);
             System.out.println("Jumlah Order hari ini : ");
             System.out.println("Menu");
-            System.out.println("1. Tambah menu");
-            System.out.println("2. Lihat menu");
-            System.out.println("3. Update menu");
-            System.out.println("4. Hapus menu");
-            System.out.println("5. Proses menu");
-            System.out.print("choose : ");
+            System.out.println("[1] Tambah menu");
+            System.out.println("[2] Lihat menu");
+            System.out.println("[3] Update menu");
+            System.out.println("[4] Hapus menu");
+            System.out.println("[5] Proses menu");
+            System.out.print("Choose : ");
             int opt = sc.nextInt();
 
             if (opt == 1) {

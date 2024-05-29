@@ -64,19 +64,23 @@ public class LoginRegister {
 
     public User register() {
         Scanner s = new Scanner(System.in);
-        System.out.println("Please Register");
-        System.out.print("Username :");
+        System.out.println("""
+                Please Register
+                Username :
+                """);
         String uname = s.next();
-        System.out.print("role :");
-        System.out.println("pilih ");
-        System.out.println("1. customer");
-        System.out.println("2. seller");
+        System.out.println("""
+                Role:
+                Pilih
+                [1] Customer
+                [2] Seller
+                """);
         int opt = s.nextInt();
         String role = "";
         if (opt == 1) {
-            role = "customer";
+            role = "Customer";
         } else if (opt == 2) {
-            role = "penjual";
+            role = "Penjual";
         }
         System.out.print("email :");
         String email = s.next();
