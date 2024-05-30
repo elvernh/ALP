@@ -3,37 +3,9 @@ import java.util.*;
 public class Start {
     Scanner sc = new Scanner(System.in);
 
-    void Start() {
+    void Homescreen() {
         String opsi, opsi2;
         do {
-            System.out.println(" Pengen makan / minum? Yophee aja!");
-            // if(){
-            System.out.print("""
-                    Eitsss... Sebelum pakai Yophee, masukin akunmu dulu!
-                    [1] Buat akun (Kalo ga punya akun)
-                    [2] Masuk (Kalo udah punya akun)
-                    [3] Keluar
-                    Opsi:
-                    """);
-            opsi = sc.next();
-
-            switch(opsi){
-                case "1":
-                break;
-
-                case "2":
-                break;
-
-                case "3":
-                System.out.println("Sampai jumpa kembali!~");
-                System.exit(0);
-                break;
-
-                default:
-                System.out.println("Pilihan tidak valid! Masukin ulang dong");
-                    break;
-            }
-            // }else{
             System.out.printf("""
                     Halo, User//ini nanti ganti pake nama user yg login
                     Mau ngapain?
@@ -86,7 +58,6 @@ public class Start {
                 System.out.println("Pilihan tidak valid! Masukin ulang dong");
                     break;
             }
-            // }
 
         } while (true);
     }
