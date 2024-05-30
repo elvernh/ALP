@@ -13,7 +13,7 @@ public class LoginRegister {
         Scanner s = new Scanner(System.in);
         User curUser = null;
         while (curUser == null) {
-            System.out.println("Menu");
+            System.out.println("menu");
             System.out.println("1. Login");
             System.out.println("2. Register");
             System.out.print("pilih : ");
