@@ -83,9 +83,9 @@ public class LoginRegister {
         String pwd = s.next();
         User user = null;
         if(opt == 1) {
-            user = new Customer(uname, role, pwd, email);
+            user = new Customer(uname, role, email, pwd);
         }else if(opt == 2) {
-            user = new Seller(uname, role, pwd, email);        
+            user = new Seller(uname, role, email, pwd);        
         }
         listuser.add(user);
         return user;

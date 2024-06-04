@@ -7,8 +7,8 @@ public class Seller extends User {
     private LinkedList<Produk> listProduct = new LinkedList<Produk>();
     private LinkedList<Order> historyOrder = new LinkedList<Order>();
 
-    public Seller(String username, String role, String pwd, String email) {
-        super(username, role, pwd, email);
+    public Seller(String username, String role, String email, String pwd) {
+        super(username, role, email, pwd);
         role = "Penjual";
     }
 

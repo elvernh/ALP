@@ -4,7 +4,7 @@ public class User {
     protected String role;
     protected String pwd;
     protected String email;
-    public User(String username, String role, String pwd, String email) {
+    public User(String username, String role, String email, String pwd) {
         this.username = username;
         this.role = role;
         this.pwd = pwd;
