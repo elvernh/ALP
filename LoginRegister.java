@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LoginRegister {
-    ArrayList<User> listuser = new ArrayList<User>();
+    ArrayList<Customer> listCustomer = new ArrayList<Customer>();
+    ArrayList<Seller> listSeller = new ArrayList<Seller>();
+
     MenuCustomer menuCustomer = new MenuCustomer();
     MenuSeller menuSeller = new MenuSeller();
 
@@ -18,7 +20,9 @@ public class LoginRegister {
             System.out.print("pilih : ");
             int choose = s.nextInt();
             if (choose == 1) {
+
                 curUser = login();
+
             } else if (choose == 2) {
                 curUser = register();
             }
@@ -26,11 +30,11 @@ public class LoginRegister {
                 if (curUser.role.equals("admin")) {
 
                 } else if (curUser.role.equals("customer")) {
-                    menuCustomer.menu(curUser, listuser, this);
+                    menuCustomer.menu(curUser, listSeller, this);
                 } else if (curUser.role.equals("penjual")) {
-                    menuSeller.menu(curUser, listuser, this);
+                    menuSeller.menu(curUser, listCustomer, this);
                 }
-            }else {
+            } else {
                 System.out.println("null");
             }
         }
@@ -48,9 +52,14 @@ public class LoginRegister {
             String pwd = s.next();
 
             // Cocokkan username dan password dengan yg ada di list
-            for (int i = 0; i < listuser.size(); i++) {
-                if (email.equals(listuser.get(i).username) && pwd.equals(listuser.get(i).pwd)) {
-                    return listuser.get(i);
+            for (int i = 0; i < listSeller.size(); i++) {
+                if (email.equals(listSeller.get(i).email) && pwd.equals(listSeller.get(i).pwd)) {
+                    return listSeller.get(i);
+                }
+            }
+            for (int i = 0; i < listCustomer.size(); i++) {
+                if (email.equals(listCustomer.get(i).email) && pwd.equals(listCustomer.get(i).pwd)) {
+                    return listCustomer.get(i);
                 }
             }
             // Berikan pesan error
@@ -82,12 +91,14 @@ public class LoginRegister {
         System.out.print("Password : ");
         String pwd = s.next();
         User user = null;
-        if(opt == 1) {
+        if (opt == 1) {
             user = new Customer(uname, role, email, pwd);
-        }else if(opt == 2) {
-            user = new Seller(uname, role, email, pwd);        
+            listCustomer.add((Customer) user);
+        } else if (opt == 2) {
+            user = new Seller(uname, role, email, pwd);
+            listSeller.add((Seller) user);
         }
-        listuser.add(user);
+
         return user;
 
     }

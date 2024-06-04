@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class MenuSeller {
     Scanner sc = new Scanner(System.in);
 
-    public void menu(User curUser, ArrayList<User> listuser, LoginRegister lr) {
+    public void menu(User curUser, ArrayList<Customer> listCustomer, LoginRegister lr) {
         while (true) {
             System.out.println("====Welcome Seller " + curUser.username + "====");
             System.out.println(curUser instanceof Seller);
