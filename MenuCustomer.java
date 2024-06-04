@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class MenuCustomer {
     Scanner s = new Scanner(System.in);
-    private ArrayList<Seller> listSeller = new ArrayList<Seller>();
 
     public void menu(User curUser, ArrayList<Seller> listSeller, LoginRegister lr) {
         while (true) {
@@ -21,6 +20,7 @@ public class MenuCustomer {
             System.out.print("Pilih : ");
             int opt = s.nextInt();
             if (opt == 1) {
+                pesanMakanan(listSeller);
             } else if (opt == 2) {
 
             } else if (opt == 3) {
@@ -34,13 +34,22 @@ public class MenuCustomer {
     }
 
     public void pesanMakanan(ArrayList<Seller> listSeller) {
-        showSeller(listSeller);
+        showAllSeller(listSeller);
+        System.out.print("pilih : ");
+        int opt = s.nextInt();
+        if(opt > 0 && opt <= listSeller.size()) {
+
+        }
     }
 
-    public void showSeller(ArrayList<Seller> listSeller) {
+    public void showAllSeller(ArrayList<Seller> listSeller) {
         for (int i = 0; i < listSeller.size(); i++) {
-            System.out.println(i + 1);
-            System.out.println("nama " + listSeller.get(i).username);
+            System.out.println((i + 1)+". " + listSeller.get(i).username + " rating ");
+            System.out.println("  jumlah menu : " + listSeller.get(i).getListProduct().size());
         }
+    }
+
+    public void showSellerProduk() {
+
     }
 }
