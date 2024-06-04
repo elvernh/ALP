@@ -1,10 +1,8 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LoginRegister {
-    LinkedList<User> listuser = new LinkedList<User>();
-
-    MenuAdmin menuAdmin = new MenuAdmin();
+    ArrayList<User> listuser = new ArrayList<User>();
     MenuCustomer menuCustomer = new MenuCustomer();
     MenuSeller menuSeller = new MenuSeller();
 
@@ -64,23 +62,19 @@ public class LoginRegister {
 
     public User register() {
         Scanner s = new Scanner(System.in);
-        System.out.println("""
-                Please Register
-                Username :
-                """);
+        System.out.println("Please Register");
+        System.out.print("Username :");
         String uname = s.next();
-        System.out.println("""
-                Role:
-                Pilih
-                [1] Customer
-                [2] Seller
-                """);
+        System.out.print("role :");
+        System.out.println("pilih ");
+        System.out.println("1. customer");
+        System.out.println("2. seller");
         int opt = s.nextInt();
         String role = "";
         if (opt == 1) {
-            role = "Customer";
+            role = "customer";
         } else if (opt == 2) {
-            role = "Penjual";
+            role = "penjual";
         }
         System.out.print("email :");
         String email = s.next();

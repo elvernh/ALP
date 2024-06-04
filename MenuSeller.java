@@ -1,10 +1,10 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuSeller {
     Scanner sc = new Scanner(System.in);
 
-    public void menu(User curUser, LinkedList<User> listuser, LoginRegister lr) {
+    public void menu(User curUser, ArrayList<User> listuser, LoginRegister lr) {
         while (true) {
             System.out.println("====Welcome Seller " + curUser.username + "====");
             System.out.println(curUser instanceof Seller);
@@ -45,6 +45,8 @@ public class MenuSeller {
                 System.out.println("=======================");
                 System.out.println("Proses order");
                 System.out.println("=======================");
+            }else if(opt == 6) {
+                lr.menu();
             }
         }
     }
