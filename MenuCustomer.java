@@ -37,19 +37,19 @@ public class MenuCustomer {
         showAllSeller(listSeller);
         System.out.print("pilih : ");
         int opt = s.nextInt();
-        if(opt > 0 && opt <= listSeller.size()) {
-
+        if (opt > 0 && opt <= listSeller.size()) {
+            showSellerProduk(listSeller.get(opt - 1));
         }
     }
 
     public void showAllSeller(ArrayList<Seller> listSeller) {
         for (int i = 0; i < listSeller.size(); i++) {
-            System.out.println((i + 1)+". " + listSeller.get(i).username + " rating ");
+            System.out.println((i + 1) + ". " + listSeller.get(i).username + " rating ");
             System.out.println("  jumlah menu : " + listSeller.get(i).getListProduct().size());
         }
     }
 
-    public void showSellerProduk() {
-
+    public void showSellerProduk(Seller seller) {
+        seller.getListProduct();
     }
 }

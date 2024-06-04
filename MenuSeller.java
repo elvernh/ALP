@@ -39,13 +39,13 @@ public class MenuSeller {
                 ((Seller) curUser).searchDetail();
                 System.out.print("pilih : ");
                 int delete = sc.nextInt();
-                ((Seller) curUser).deleteProduk(delete);               
+                ((Seller) curUser).deleteProduk(delete);
                 System.out.println("Menu berhasil dihapus");
             } else if (opt == 5) {
                 System.out.println("=======================");
                 System.out.println("Proses order");
                 System.out.println("=======================");
-            }else if(opt == 6) {
+            } else if (opt == 6) {
                 lr.menu();
             }
         }
@@ -64,10 +64,15 @@ public class MenuSeller {
         System.out.println("2. Minuman");
         System.out.print("pilih : ");
         int opt = sc.nextInt();
+        String kategori;
+        if (opt == 1) {
+            kategori = "makanan";
+        } else {
+            kategori = "minuman";
+        }
         System.out.print("Masukkan deskripsi : ");
         String desc = sc.next() + sc.nextLine();
-        System.out.print("Masukkan kategori : ");
-        String kategori = sc.next() + sc.nextLine();
+
         System.out.print("Masukkan harga : ");
         int price = sc.nextInt();
         if (opt == 1) {
@@ -79,10 +84,6 @@ public class MenuSeller {
         }
         System.out.println("Berhasil menambahkan data");
     }
-
-    
-
-   
 
     public void updateMenu() {
 
