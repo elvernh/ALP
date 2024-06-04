@@ -5,8 +5,8 @@ public class Customer extends User {
     private String alamat;
     private int saldo;
     
-    public Customer(String username, String role, String pwd, String email) {
-        super(username, role, pwd, email);
+    public Customer(String name, String password) {
+        super(name, password);
         role = "customer";
         points = 10;
     }
