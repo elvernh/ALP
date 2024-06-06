@@ -20,7 +20,7 @@ public class MenuCustomer {
             System.out.print("Pilih : ");
             int opt = s.nextInt();
             if (opt == 1) {
-                pesanMakanan(listSeller);
+                pesanMakanan(listSeller, curUser);
             } else if (opt == 2) {
 
             } else if (opt == 3) {
@@ -33,23 +33,31 @@ public class MenuCustomer {
         }
     }
 
-    public void pesanMakanan(ArrayList<Seller> listSeller) {
+    public void pesanMakanan(ArrayList<Seller> listSeller, User curUser) {
         showAllSeller(listSeller);
         System.out.print("pilih : ");
         int opt = s.nextInt();
         if (opt > 0 && opt <= listSeller.size()) {
-            showSellerProduk(listSeller.get(opt - 1));
+            orderProduk(listSeller.get(opt - 1), curUser);
         }
     }
 
     public void showAllSeller(ArrayList<Seller> listSeller) {
         for (int i = 0; i < listSeller.size(); i++) {
             System.out.println((i + 1) + ". " + listSeller.get(i).username + " rating ");
-            System.out.println("  jumlah menu : " + listSeller.get(i).getListProduct().size());
+            System.out.println("jumlah menu : " + listSeller.get(i).getListProduct().size());
+            System.out.println("");
         }
     }
 
-    public void showSellerProduk(Seller seller) {
-        seller.getListProduct();
+    public void orderProduk(Seller seller, User curUser ) {
+        Order order = new Order(curUser.getUsername(), seller.getUsername(), ((Customer) curUser).getAlamat());
+        System.out.println("==Menu dari " + seller.getUsername() + "===");
+        seller.searchDetail();
+        System.out.print("pilih : ");
+        int opt = s.nextInt();
+        if(opt > 0 && opt <= seller.getListProduct().size()) {
+            order.getListProduct().add(seller.getListProduct().get(opt - 1));
+        }
     }
 }

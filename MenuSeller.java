@@ -75,13 +75,11 @@ public class MenuSeller {
 
         System.out.print("Masukkan harga : ");
         int price = sc.nextInt();
-        if (opt == 1) {
-            produk = new Produk(nama, desc, price, kategori);
-            ((Seller) curUser).addProduct(produk);
-        } else if (opt == 2) {
-            produk = new Produk(nama, desc, price, kategori);
-            ((Seller) curUser).addProduct(produk);
-        }
+
+        produk = new Produk(nama, desc, price, kategori);
+        
+        ((Seller) curUser).addProduct(produk);
+
         System.out.println("Berhasil menambahkan data");
     }
 

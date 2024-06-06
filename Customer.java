@@ -23,4 +23,7 @@ public class Customer extends User {
     public int getSaldo() {
         return saldo;
     }
+    public String getAlamat() {
+        return alamat;
+    }
 }

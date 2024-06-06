@@ -12,7 +12,6 @@ public class LoginRegister {
         // Mau Login atau Register
         Scanner s = new Scanner(System.in);
         User curUser = null;
-        int a;
         while (curUser == null) {
             System.out.println("Menu");
             System.out.println("1. Login");

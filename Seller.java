@@ -16,7 +16,7 @@ public class Seller extends User {
         listProduct.add(product);
     }
 
-    public LinkedList getListProduct() {
+    public LinkedList<Produk> getListProduct() {
         return listProduct;
     }
 
@@ -31,6 +31,7 @@ public class Seller extends User {
             System.out.println("Deskripsi : " + listProduct.get(i).getDesc());
             System.out.println("Harga : " + listProduct.get(i).getPrice());
             System.out.println("Kategori : " + listProduct.get(i).getKategori());
+            System.out.println("");
         }
     }
 
