@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -5,7 +6,7 @@ import java.util.Scanner;
 public class MenuCustomer {
     Scanner s = new Scanner(System.in);
 
-    public void menu(User curUser, ArrayList<Seller> listSeller, LoginRegister lr) {
+    public void menu(User curUser, ArrayList<Seller> listSeller, LoginRegister lr) throws IOException {
         while (true) {
             System.out.println("====Welcome=====");
             LocalDate date = LocalDate.now();
@@ -70,9 +71,9 @@ public class MenuCustomer {
             System.out.println("sudah(y/n) : ");
             String opt1 = s.next();
             if (opt1.equalsIgnoreCase("y")) {
-                continue;
-            } else if (opt1.equalsIgnoreCase("n")) {
                 break;
+            } else if (opt1.equalsIgnoreCase("n")) {
+                continue;
             }
         }
         int totalPrice = 0;
@@ -82,12 +83,16 @@ public class MenuCustomer {
         System.out.println("harga akhir : " + totalPrice);
         System.out.println("pesan(y/n) : ");
         String opt2 = s.next();
-        if (opt2.equalsIgnoreCase("y")) {
-            seller.getListOrder().enqueue(order);
-            ((Customer) curUser).addOrder(order);
-            System.out.println("order berhasil dibuat");
-        } else if (opt2.equalsIgnoreCase("n")) {
+        if (((Customer) curUser).getSaldo() >= totalPrice) {
+            if (opt2.equalsIgnoreCase("y")) {
+                seller.getListOrder().enqueue(order);
+                ((Customer) curUser).addOrder(order);
+                System.out.println("order berhasil dibuat");
+            } else if (opt2.equalsIgnoreCase("n")) {
 
+            }
+        }else {
+            System.out.println("uang anda tidak mencukupi");
         }
 
     }

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -5,7 +6,7 @@ import java.util.Scanner;
 public class MenuSeller {
     Scanner sc = new Scanner(System.in);
 
-    public void menu(User curUser, ArrayList<Customer> listCustomer, LoginRegister lr) {
+    public void menu(User curUser, ArrayList<Customer> listCustomer, LoginRegister lr) throws IOException {
         while (true) {
             System.out.println("====Welcome Seller " + curUser.username + "====");
             LocalDate date = LocalDate.now();
@@ -52,7 +53,7 @@ public class MenuSeller {
                 System.out.print("pilih : ");
                 int choose = sc.nextInt();
                 if(choose == 1) {
-                    
+                    ((Seller) curUser).seeAllOrder();
                 }else if(choose == 2) {
                     ((Seller) curUser).processOrder();
                 }

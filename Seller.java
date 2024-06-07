@@ -60,10 +60,24 @@ public class Seller extends User {
         }
     }
     public void processOrder() {
-        Order process = listOrder.dequeue();
-        process.setIsDone(true);
-        System.out.println("pesanan telah diselesaikan");
-        saldo += process.getTotal();
-        historyOrder.add(process);
+        Scanner s = new Scanner(System.in);
+        System.out.println("Proses pesanan : ");
+        System.out.println("nama : "+listOrder.peek().getCustName());
+        System.out.println("pesanan : ");
+        for (int i = 0; i < listOrder.peek().getListProduct().size(); i++) {
+            System.out.println((i + 1) + " " + listOrder.peek().getListProduct().get(i).getName() + " Rp."+ listOrder.peek().getListProduct().get(i).getPrice());
+        }
+        System.out.println("total : " + listOrder.peek().getTotal());
+        System.out.println("proses(y/n) : ");
+        String opt = s.next();
+        if(opt.equalsIgnoreCase("y")) {
+            Order process = listOrder.dequeue();
+            process.setIsDone(true);
+            System.out.println("pesanan telah diselesaikan");
+            saldo += process.getTotal();
+            historyOrder.add(process);
+        }else {
+            System.out.println("pesanan tidak jadi diproses");
+        }      
     }
 }
