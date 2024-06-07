@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,7 +8,9 @@ public class MenuSeller {
     public void menu(User curUser, ArrayList<Customer> listCustomer, LoginRegister lr) {
         while (true) {
             System.out.println("====Welcome Seller " + curUser.username + "====");
-            System.out.println("Jumlah Order hari ini : ");
+            LocalDate date = LocalDate.now();
+            System.out.println("tanggal : " + date);
+            System.out.println("Jumlah Order hari ini : " + ((Seller) curUser).getListOrder().sizeQueue());
             System.out.println("Menu");
             System.out.println("[1] Tambah menu");
             System.out.println("[2] Lihat menu");
@@ -44,7 +47,15 @@ public class MenuSeller {
                 System.out.println("=======================");
                 System.out.println("Proses order");
                 System.out.println("=======================");
-                ((Seller) curUser).getListOrder();
+                System.out.println("[1]. Lihat Seluruh pesanan");
+                System.out.println("[2]. Proses pesanan");
+                System.out.print("pilih : ");
+                int choose = sc.nextInt();
+                if(choose == 1) {
+                    
+                }else if(choose == 2) {
+                    ((Seller) curUser).processOrder();
+                }
             } else if (opt == 6) {
                 lr.menu();
             }
