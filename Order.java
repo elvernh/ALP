@@ -4,13 +4,12 @@ import java.util.LinkedList;
 public class Order {
     private String custName, sellerName, alamat;
     private int total;
-    private LinkedList<Produk> listOrder = new LinkedList<Produk>();
+    private LinkedList<Produk> listProduct = new LinkedList<Produk>();
     private Boolean isDone;
     LocalDate date;
-    public Order(String custName, String sellerName, LinkedList<Produk> listOrder,  String alamat, int total) {
+    public Order(String custName, String sellerName,  String alamat) {
         this.custName = custName;
         this.sellerName = sellerName;
-        this.listOrder = listOrder;
         this.alamat = alamat;
         this.total = total;
         isDone = false;
@@ -36,11 +35,11 @@ public class Order {
     public void setCustName(String custName) {
         this.custName = custName;
     }
-    public LinkedList<Produk> getListOrder() {
-        return listOrder;
+    public LinkedList<Produk> getListProduct() {
+        return listProduct;
     }
-    public void setListOrder(LinkedList<Produk> listOrder) {
-        this.listOrder = listOrder;
+    public void setListProduct(LinkedList<Produk> listProduct) {
+        this.listProduct = listProduct;
     }
     public String getSellerName() {
         return sellerName;

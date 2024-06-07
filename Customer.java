@@ -1,14 +1,29 @@
 import java.util.LinkedList;
 
 public class Customer extends User {
-    int points;
+    private int points;
     private String alamat;
-    int saldo;
-    LinkedList<Voucher> listVoucher = new LinkedList<Voucher>();
+    private int saldo;
     
-    public Customer(String name, String password) {
-        super(name, password);
+    public Customer(String username, String role, String email, String pwd) {
+        super(username, role, email, pwd);
         role = "customer";
         points = 10;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+    public void setPoints(int points) {
+        this.points = points;
+    }
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
+    }
+    public int getSaldo() {
+        return saldo;
+    }
+    public String getAlamat() {
+        return alamat;
     }
 }

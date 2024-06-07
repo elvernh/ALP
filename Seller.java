@@ -7,8 +7,8 @@ public class Seller extends User {
     private LinkedList<Produk> listProduct = new LinkedList<Produk>();
     private LinkedList<Order> historyOrder = new LinkedList<Order>();
 
-    public Seller(String username, String role, String pwd, String email) {
-        super(username, role, pwd, email);
+    public Seller(String username, String role, String email, String pwd) {
+        super(username, role, email, pwd);
         role = "Penjual";
     }
 
@@ -16,7 +16,7 @@ public class Seller extends User {
         listProduct.add(product);
     }
 
-    public LinkedList getListProduct() {
+    public LinkedList<Produk> getListProduct() {
         return listProduct;
     }
 
@@ -31,6 +31,7 @@ public class Seller extends User {
             System.out.println("Deskripsi : " + listProduct.get(i).getDesc());
             System.out.println("Harga : " + listProduct.get(i).getPrice());
             System.out.println("Kategori : " + listProduct.get(i).getKategori());
+            System.out.println("");
         }
     }
 
