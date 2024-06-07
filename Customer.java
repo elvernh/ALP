@@ -13,6 +13,7 @@ public class Customer extends User {
     public void showOrder() {
         for (int i = 0; i < listOrder.size(); i++) {
             System.out.println("no : " + (i + 1));
+            System.out.println("tanggal : " + listOrder.get(i).getDate());
             System.out.println("Seller : " + listOrder.get(i).getSellerName());
             System.out.println("Jumlah : " + listOrder.get(i).getListProduct().size());
             System.out.println("Total : " + listOrder.get(i).getTotal());

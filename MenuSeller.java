@@ -44,6 +44,7 @@ public class MenuSeller {
                 System.out.println("=======================");
                 System.out.println("Proses order");
                 System.out.println("=======================");
+                ((Seller) curUser).getListOrder();
             } else if (opt == 6) {
                 lr.menu();
             }

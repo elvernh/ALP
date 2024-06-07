@@ -12,6 +12,7 @@ public class Order {
         this.sellerName = sellerName;
         this.alamat = alamat;
         this.total = total;
+        date = LocalDate.now();
         isDone = false;
     }
     public LocalDate getDate() {

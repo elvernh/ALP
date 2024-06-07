@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,7 +8,8 @@ public class MenuCustomer {
     public void menu(User curUser, ArrayList<Seller> listSeller, LoginRegister lr) {
         while (true) {
             System.out.println("====Welcome=====");
-            System.out.println();
+            LocalDate date = LocalDate.now();
+            System.out.println("tanggal : " + date);
             System.out.println("Welcome : " + curUser.getUsername());
             System.out.println("Saldo : " + ((Customer) curUser).getSaldo());
             System.out.println("Poin : " + ((Customer) curUser).getPoints());

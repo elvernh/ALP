@@ -53,4 +53,17 @@ public class Seller extends User {
     public Queue getListOrder() {
         return listOrder;
     }
+
+    public void seeAllOrder() {
+        for (int i = 0; i < listOrder.sizeQueue(); i++) {
+            
+        }
+    }
+    public void processOrder() {
+        Order process = listOrder.dequeue();
+        process.setIsDone(true);
+        System.out.println("pesanan telah diselesaikan");
+        saldo += process.getTotal();
+        historyOrder.add(process);
+    }
 }
