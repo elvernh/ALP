@@ -45,4 +45,12 @@ public class Seller extends User {
            
         }
     }
+    
+    public void setListOrder(Queue listOrder) {
+        this.listOrder = listOrder;
+    }
+
+    public Queue getListOrder() {
+        return listOrder;
+    }
 }

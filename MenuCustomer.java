@@ -24,7 +24,7 @@ public class MenuCustomer {
             } else if (opt == 2) {
 
             } else if (opt == 3) {
-
+                
             } else if (opt == 4) {
 
             } else if (opt == 5) {
@@ -61,11 +61,31 @@ public class MenuCustomer {
                 System.out.println("jumlah : ");
                 int jumlah = s.nextInt();
                 for (int i = 0; i < jumlah; i++) {
-                    order.getListProduct().add(seller.getListProduct().get(opt - 1));                   
-                }                
+                    order.getListProduct().add(seller.getListProduct().get(opt - 1));
+                }
             }
             System.out.println("sudah(y/n) : ");
-            
+            String opt1 = s.next();
+            if (opt1.equalsIgnoreCase("y")) {
+                continue;
+            } else if (opt1.equalsIgnoreCase("n")) {
+                break;
+            }
         }
+        int totalPrice = 0;
+        for (int i = 0; i < order.getListProduct().size(); i++) {
+            totalPrice += order.getListProduct().get(i).getPrice();
+        }
+        System.out.println("harga akhir : " + totalPrice);
+        System.out.println("pesan(y/n) : ");
+        String opt2 = s.next();
+        if (opt2.equalsIgnoreCase("y")) {
+            seller.getListOrder().enqueue(order);
+            ((Customer) curUser).addOrder(order);
+            System.out.println("order berhasil dibuat");
+        } else if (opt2.equalsIgnoreCase("n")) {
+
+        }
+
     }
 }
