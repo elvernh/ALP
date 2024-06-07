@@ -7,6 +7,7 @@ public class MenuCustomer {
     public void menu(User curUser, ArrayList<Seller> listSeller, LoginRegister lr) {
         while (true) {
             System.out.println("====Welcome=====");
+            System.out.println();
             System.out.println("Welcome : " + curUser.getUsername());
             System.out.println("Saldo : " + ((Customer) curUser).getSaldo());
             System.out.println("Poin : " + ((Customer) curUser).getPoints());
@@ -22,7 +23,7 @@ public class MenuCustomer {
             if (opt == 1) {
                 pesanMakanan(listSeller, curUser);
             } else if (opt == 2) {
-
+                ((Customer) curUser).showOrder();
             } else if (opt == 3) {
                 
             } else if (opt == 4) {

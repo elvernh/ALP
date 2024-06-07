@@ -53,4 +53,10 @@ public class Order {
     public void setTotal(int total) {
         this.total = total;
     }
+    public Boolean getIsDone() {
+        return isDone;
+    }
+    public void setIsDone(Boolean isDone) {
+        this.isDone = isDone;
+    }
 }

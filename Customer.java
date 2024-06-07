@@ -16,6 +16,11 @@ public class Customer extends User {
             System.out.println("Seller : " + listOrder.get(i).getSellerName());
             System.out.println("Jumlah : " + listOrder.get(i).getListProduct().size());
             System.out.println("Total : " + listOrder.get(i).getTotal());
+            if(listOrder.get(i).getIsDone() == true) {
+                System.out.println("status : selesai");
+            }else {
+                System.out.println("status : proses");
+            }
         }
     }
     public LinkedList<Order> getListOrder() {
