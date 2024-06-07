@@ -64,6 +64,8 @@ public class MenuCustomer {
                     order.getListProduct().add(seller.getListProduct().get(opt - 1));                   
                 }                
             }
+            System.out.println("sudah(y/n) : ");
+            
         }
     }
 }
