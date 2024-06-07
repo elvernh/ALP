@@ -7,7 +7,6 @@ public class MenuSeller {
     public void menu(User curUser, ArrayList<Customer> listCustomer, LoginRegister lr) {
         while (true) {
             System.out.println("====Welcome Seller " + curUser.username + "====");
-            System.out.println(curUser instanceof Seller);
             System.out.println("Jumlah Order hari ini : ");
             System.out.println("Menu");
             System.out.println("[1] Tambah menu");

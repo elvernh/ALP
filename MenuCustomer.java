@@ -50,14 +50,20 @@ public class MenuCustomer {
         }
     }
 
-    public void orderProduk(Seller seller, User curUser ) {
+    public void orderProduk(Seller seller, User curUser) {
         Order order = new Order(curUser.getUsername(), seller.getUsername(), ((Customer) curUser).getAlamat());
-        System.out.println("==Menu dari " + seller.getUsername() + "===");
-        seller.searchDetail();
-        System.out.print("pilih : ");
-        int opt = s.nextInt();
-        if(opt > 0 && opt <= seller.getListProduct().size()) {
-            order.getListProduct().add(seller.getListProduct().get(opt - 1));
+        while (true) {
+            System.out.println("==Menu dari " + seller.getUsername() + "===");
+            seller.searchDetail();
+            System.out.print("pilih : ");
+            int opt = s.nextInt();
+            if (opt > 0 && opt <= seller.getListProduct().size()) {
+                System.out.println("jumlah : ");
+                int jumlah = s.nextInt();
+                for (int i = 0; i < jumlah; i++) {
+                    order.getListProduct().add(seller.getListProduct().get(opt - 1));                   
+                }                
+            }
         }
     }
 }
