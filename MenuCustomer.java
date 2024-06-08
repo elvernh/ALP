@@ -28,13 +28,14 @@ public class MenuCustomer {
             } else if (opt == 2) {
                 ((Customer) curUser).showOrder();
             } else if (opt == 3) {
-                
+
             } else if (opt == 4) {
-
+                
             } else if (opt == 5) {
-                    
-
-            }else if (opt == 6) {
+                System.out.print("masukkan jumlah : ");
+                int jumlah = s.nextInt();
+                ((Customer) curUser).topUp(jumlah);
+            } else if (opt == 6) {
                 lr.menu();
             }
         }
@@ -90,11 +91,14 @@ public class MenuCustomer {
             if (opt2.equalsIgnoreCase("y")) {
                 seller.getListOrder().enqueue(order);
                 ((Customer) curUser).addOrder(order);
+                ((Customer) curUser).setSaldo( ((Customer) curUser).getSaldo() - totalPrice);
+                order.setTotal(totalPrice);
                 System.out.println("order berhasil dibuat");
+               ((Customer) curUser).addPoints(totalPrice);
             } else if (opt2.equalsIgnoreCase("n")) {
                 System.out.println("pesanan dibatalkan");
             }
-        }else {
+        } else {
             System.out.println("uang anda tidak mencukupi");
         }
 

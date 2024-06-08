@@ -49,5 +49,10 @@ public class Customer extends User {
 
     public void topUp(int jumlah) {
         saldo += jumlah;
+        System.out.println("berhasil top up");
+    }
+
+    public void addPoints(int harga) {
+        points += (harga / 10000) * 10;
     }
 }

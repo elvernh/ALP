@@ -11,7 +11,6 @@ public class Order {
         this.custName = custName;
         this.sellerName = sellerName;
         this.alamat = alamat;
-        this.total = total;
         date = LocalDate.now();
         isDone = false;
     }

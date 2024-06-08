@@ -45,10 +45,10 @@ public class LoginRegister {
             // Minta username dan password
             Scanner s = new Scanner(System.in);
             System.out.println("Please Login");
-            System.out.println("email :");
-            String email = s.next();
-            System.out.println("Password : ");
-            String pwd = s.next();
+            System.out.print("email :");
+            String email = s.next() + s.nextLine();
+            System.out.print("Password : ");
+            String pwd = s.next() + s.nextLine();
 
             // Cocokkan username dan password dengan yg ada di list
             for (int i = 0; i < listSeller.size(); i++) {
