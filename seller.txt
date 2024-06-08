@@ -1,2 +1,1 @@
-daff,penjual,1234,12
-daff,penjual,sss,123
+faiz,penjual,faiz@gmail.com,1234,0

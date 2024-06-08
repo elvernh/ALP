@@ -31,9 +31,9 @@ public class LoginRegister {
                 if (curUser.role.equals("admin")) {
 
                 } else if (curUser.role.equals("customer")) {
-                    menuCustomer.menu(curUser, listSeller, this);
+                    menuCustomer.menu(curUser, listSeller, listCustomer, this);
                 } else if (curUser.role.equals("penjual")) {
-                    menuSeller.menu(curUser, listCustomer, this);
+                    menuSeller.menu(curUser, listCustomer, listSeller, this);
                 }
             } else {
                 System.out.println("null");
@@ -77,11 +77,12 @@ public class LoginRegister {
         Scanner s = new Scanner(System.in);
         System.out.println("Please Register");
         System.out.print("Username :");
-        String uname = s.next();
+        String uname = s.next() + s.nextLine();
         System.out.print("role :");
         System.out.println("pilih ");
         System.out.println("1. customer");
         System.out.println("2. seller");
+        System.out.print("pilih : ");
         int opt = s.nextInt();
         String role = "";
         if (opt == 1) {
@@ -90,12 +91,14 @@ public class LoginRegister {
             role = "penjual";
         }
         System.out.print("email :");
-        String email = s.next();
+        String email = s.next() + s.nextLine();
         System.out.print("Password : ");
-        String pwd = s.next();
+        String pwd = s.next() + s.nextLine();
         User user = null;
         if (opt == 1) {
-            user = new Customer(uname, role, email, pwd);
+            System.out.println("masukkan alamat : ");
+            String alamat = s.next() + s.nextLine();
+            user = new Customer(uname, role, email, pwd, alamat);
             FileWriter customer;
             BufferedWriter buffercustomer;
 
@@ -103,7 +106,7 @@ public class LoginRegister {
                 customer = new FileWriter("customer.txt", true);
                 buffercustomer = new BufferedWriter(customer);
                 buffercustomer
-                        .write(uname + "," + role + "," + email + "," + pwd);
+                        .write(uname + "," + role + "," + email + "," + pwd + "," + alamat + "," + 0 + "," + 10);
                 buffercustomer.newLine();
                 buffercustomer.flush();
 
@@ -122,7 +125,7 @@ public class LoginRegister {
                 seller = new FileWriter("seller.txt", true);
                 bufferseller = new BufferedWriter(seller);
                 bufferseller
-                        .write(uname + "," + role + "," + email + "," + pwd);
+                        .write(uname + "," + role + "," + email + "," + pwd + "," +0);
                 bufferseller.newLine();
                 bufferseller.flush();
 
@@ -138,7 +141,7 @@ public class LoginRegister {
 
     }
 
-    public void queryDataCust() throws IOException{
+    public void queryDataCust() throws IOException {
         FileReader fileInput;
         BufferedReader bufferInput;
         try {
@@ -149,7 +152,6 @@ public class LoginRegister {
             return;
         }
         String data = bufferInput.readLine();
-        int num = 0;
         User user;
         while (data != null) {
 
@@ -158,7 +160,10 @@ public class LoginRegister {
             String role = tokend.nextToken();
             String email = tokend.nextToken();
             String pwd = tokend.nextToken();
-            user = new Customer(uname, role, email, pwd);
+            String alamat = tokend.nextToken();
+            String saldo = tokend.nextToken();
+            String points = tokend.nextToken();
+            user = new Customer(uname, role, email, pwd, alamat);
             listCustomer.add((Customer) user);
 
             data = bufferInput.readLine();
@@ -166,7 +171,7 @@ public class LoginRegister {
         bufferInput.close();
     }
 
-    public void queryDataSeller() throws IOException{
+    public void queryDataSeller() throws IOException {
         FileReader fileInput;
         BufferedReader bufferInput;
         try {

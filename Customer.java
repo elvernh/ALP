@@ -5,11 +5,21 @@ public class Customer extends User {
     private String alamat;
     private int saldo;
     private LinkedList<Order> listOrder = new LinkedList<Order>();
-    public Customer(String username, String role, String email, String pwd) {
+    public Customer(String username, String role, String email, String pwd, String alamat) {
         super(username, role, email, pwd);
         role = "customer";
         points = 10;
+        this.alamat = alamat;
     }
+    public Customer(String username, String role, String email, String pwd, String alamat, int saldo, int points) {
+        super(username, role, email, pwd);
+        role = "customer";
+        points = 10;
+        this.alamat = alamat;
+        this.saldo = saldo;
+        this.points = points;
+    }
+    
     public void showOrder() {
         for (int i = 0; i < listOrder.size(); i++) {
             System.out.println("no : " + (i + 1));
@@ -45,5 +55,9 @@ public class Customer extends User {
     }
     public String getAlamat() {
         return alamat;
+    }
+
+    public void topUp(int jumlah) {
+        saldo += jumlah;
     }
 }
