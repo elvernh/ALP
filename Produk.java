@@ -1,15 +1,14 @@
 public class Produk {
     private String name, desc;
-    private int price, jumlah;
+    private int price;
     private String kategori;
     
 
-    public Produk(String name, String desc, int price, String kategori, int jumlah) {
+    public Produk(String name, String desc, int price, String kategori) {
         this.name = name;
         this.desc = desc;
         this.price = price;
         this.kategori = kategori;
-        this.jumlah = jumlah;
     }
 
     public String getDesc() {

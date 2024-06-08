@@ -1,7 +1,5 @@
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class LoginRegister {
     ArrayList<Customer> listCustomer = new ArrayList<Customer>();
@@ -10,7 +8,7 @@ public class LoginRegister {
     MenuCustomer menuCustomer = new MenuCustomer();
     MenuSeller menuSeller = new MenuSeller();
 
-    public void menu() throws IOException {
+    public void menu() {
         // Mau Login atau Register
         Scanner s = new Scanner(System.in);
         User curUser = null;
@@ -31,9 +29,9 @@ public class LoginRegister {
                 if (curUser.role.equals("admin")) {
 
                 } else if (curUser.role.equals("customer")) {
-                    menuCustomer.menu(curUser, listSeller, listCustomer, this);
+                    menuCustomer.menu(curUser, listSeller, this);
                 } else if (curUser.role.equals("penjual")) {
-                    menuSeller.menu(curUser, listCustomer, listSeller, this);
+                    menuSeller.menu(curUser, listCustomer, this);
                 }
             } else {
                 System.out.println("null");
@@ -41,7 +39,7 @@ public class LoginRegister {
         }
     }
 
-    public User login() throws IOException {
+    public User login() {
         String tryagain = "";
         while (!tryagain.equalsIgnoreCase("n")) {
             // Minta username dan password
@@ -53,8 +51,6 @@ public class LoginRegister {
             String pwd = s.next();
 
             // Cocokkan username dan password dengan yg ada di list
-            queryDataCust();
-            queryDataSeller();
             for (int i = 0; i < listSeller.size(); i++) {
                 if (email.equals(listSeller.get(i).email) && pwd.equals(listSeller.get(i).pwd)) {
                     return listSeller.get(i);
@@ -77,12 +73,11 @@ public class LoginRegister {
         Scanner s = new Scanner(System.in);
         System.out.println("Please Register");
         System.out.print("Username :");
-        String uname = s.next() + s.nextLine();
+        String uname = s.next();
         System.out.print("role :");
         System.out.println("pilih ");
         System.out.println("1. customer");
         System.out.println("2. seller");
-        System.out.print("pilih : ");
         int opt = s.nextInt();
         String role = "";
         if (opt == 1) {
@@ -91,111 +86,19 @@ public class LoginRegister {
             role = "penjual";
         }
         System.out.print("email :");
-        String email = s.next() + s.nextLine();
+        String email = s.next();
         System.out.print("Password : ");
-        String pwd = s.next() + s.nextLine();
+        String pwd = s.next();
         User user = null;
         if (opt == 1) {
-            System.out.println("masukkan alamat : ");
-            String alamat = s.next() + s.nextLine();
-            user = new Customer(uname, role, email, pwd, alamat);
-            FileWriter customer;
-            BufferedWriter buffercustomer;
-
-            try {
-                customer = new FileWriter("customer.txt", true);
-                buffercustomer = new BufferedWriter(customer);
-                buffercustomer
-                        .write(uname + "," + role + "," + email + "," + pwd + "," + alamat + "," + 0 + "," + 10);
-                buffercustomer.newLine();
-                buffercustomer.flush();
-
-                buffercustomer.close();
-            } catch (Exception e) {
-                System.err.println(e);
-                return null;
-            }
-
+            user = new Customer(uname, role, email, pwd);
+            listCustomer.add((Customer) user);
         } else if (opt == 2) {
             user = new Seller(uname, role, email, pwd);
-            FileWriter seller;
-            BufferedWriter bufferseller;
-
-            try {
-                seller = new FileWriter("seller.txt", true);
-                bufferseller = new BufferedWriter(seller);
-                bufferseller
-                        .write(uname + "," + role + "," + email + "," + pwd + "," +0);
-                bufferseller.newLine();
-                bufferseller.flush();
-
-                bufferseller.close();
-            } catch (Exception e) {
-                System.err.println(e);
-                return null;
-            }
-
+            listSeller.add((Seller) user);
         }
 
         return user;
 
-    }
-
-    public void queryDataCust() throws IOException {
-        FileReader fileInput;
-        BufferedReader bufferInput;
-        try {
-            fileInput = new FileReader("customer.txt");
-            bufferInput = new BufferedReader(fileInput);
-        } catch (IOException e) {
-            System.out.println(e);
-            return;
-        }
-        String data = bufferInput.readLine();
-        User user;
-        while (data != null) {
-
-            StringTokenizer tokend = new StringTokenizer(data, ",");
-            String uname = tokend.nextToken();
-            String role = tokend.nextToken();
-            String email = tokend.nextToken();
-            String pwd = tokend.nextToken();
-            String alamat = tokend.nextToken();
-            String saldo = tokend.nextToken();
-            String points = tokend.nextToken();
-            user = new Customer(uname, role, email, pwd, alamat);
-            listCustomer.add((Customer) user);
-
-            data = bufferInput.readLine();
-        }
-        bufferInput.close();
-    }
-
-    public void queryDataSeller() throws IOException {
-        FileReader fileInput;
-        BufferedReader bufferInput;
-        try {
-            fileInput = new FileReader("seller.txt");
-            bufferInput = new BufferedReader(fileInput);
-        } catch (IOException e) {
-            System.out.println(e);
-            return;
-        }
-        String data = bufferInput.readLine();
-        int num = 0;
-        User user;
-        while (data != null) {
-
-            StringTokenizer tokend = new StringTokenizer(data, ",");
-            String uname = tokend.nextToken();
-            String role = tokend.nextToken();
-            String email = tokend.nextToken();
-            String pwd = tokend.nextToken();
-            user = new Seller(uname, role, email, pwd);
-            listSeller.add((Seller) user);
-
-            data = bufferInput.readLine();
-        }
-        bufferInput.close();
     }
 }

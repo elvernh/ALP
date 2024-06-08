@@ -1,6 +1,3 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,7 +5,7 @@ import java.util.Scanner;
 public class MenuSeller {
     Scanner sc = new Scanner(System.in);
 
-    public void menu(User curUser, ArrayList<Customer> listCustomer, ArrayList<Seller> listSeller, LoginRegister lr) throws IOException {
+    public void menu(User curUser, ArrayList<Customer> listCustomer, LoginRegister lr) {
         while (true) {
             System.out.println("====Welcome Seller " + curUser.username + "====");
             LocalDate date = LocalDate.now();
@@ -54,9 +51,9 @@ public class MenuSeller {
                 System.out.println("[2]. Proses pesanan");
                 System.out.print("pilih : ");
                 int choose = sc.nextInt();
-                if (choose == 1) {
+                if(choose == 1) {
                     ((Seller) curUser).seeAllOrder();
-                } else if (choose == 2) {
+                }else if(choose == 2) {
                     ((Seller) curUser).processOrder();
                 }
             } else if (opt == 6) {
@@ -89,27 +86,10 @@ public class MenuSeller {
 
         System.out.print("Masukkan harga : ");
         int price = sc.nextInt();
-        System.out.print("jumlah : ");
-        int jumlah =  sc.nextInt();
-        // produk = new Produk(nama, desc, price, kategori);
 
-        // ((Seller) curUser).addProduct(produk);
-        FileWriter product;
-        BufferedWriter bufferproduct;
-
-        try {
-            product = new FileWriter(("product"+curUser.getEmail()+".txt"), true);
-            bufferproduct = new BufferedWriter(product);
-            bufferproduct
-                    .write(nama+ "," + desc + "," + price + "," + kategori + "," + jumlah);
-            bufferproduct.newLine();
-            bufferproduct.flush();
-
-            bufferproduct.close();
-        } catch (Exception e) {
-            System.err.println(e);
-            return;
-        }
+        produk = new Produk(nama, desc, price, kategori);
+        
+        ((Seller) curUser).addProduct(produk);
 
         System.out.println("Berhasil menambahkan data");
     }

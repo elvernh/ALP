@@ -1,1 +1,0 @@
-daffa,customer,daffa@email.com,1234,sambikerep,0,10
