@@ -29,8 +29,9 @@ public class MenuCustomer {
                 ((Customer) curUser).showOrder();
             } else if (opt == 3) {
                 ((Customer) curUser).showOrder();
+                System.out.println("pilih pesanan untuk beri rating : ");
             } else if (opt == 4) {
-                
+
             } else if (opt == 5) {
                 System.out.print("masukkan jumlah : ");
                 int jumlah = s.nextInt();
@@ -46,13 +47,17 @@ public class MenuCustomer {
         System.out.print("pilih : ");
         int opt = s.nextInt();
         if (opt > 0 && opt <= listSeller.size()) {
+            if(listSeller.get(opt - 1).getListProduct().size() > 0) {
             orderProduk(listSeller.get(opt - 1), curUser);
+            }else {
+                System.out.println("seller belum memiliki menu");
+            }
         }
     }
 
     public void showAllSeller(ArrayList<Seller> listSeller) {
         for (int i = 0; i < listSeller.size(); i++) {
-            System.out.println((i + 1) + ". " + listSeller.get(i).username + " rating ");
+            System.out.println((i + 1) + ". " + listSeller.get(i).username + " rating " + listSeller.get(i).avgRating());
             System.out.println("jumlah menu : " + listSeller.get(i).getListProduct().size());
             System.out.println("");
         }
@@ -65,6 +70,7 @@ public class MenuCustomer {
             seller.searchDetail();
             System.out.print("pilih : ");
             int opt = s.nextInt();
+            
             if (opt > 0 && opt <= seller.getListProduct().size()) {
                 System.out.println("jumlah : ");
                 int jumlah = s.nextInt();
@@ -91,10 +97,10 @@ public class MenuCustomer {
             if (opt2.equalsIgnoreCase("y")) {
                 seller.getListOrder().enqueue(order);
                 ((Customer) curUser).addOrder(order);
-                ((Customer) curUser).setSaldo( ((Customer) curUser).getSaldo() - totalPrice);
+                ((Customer) curUser).setSaldo(((Customer) curUser).getSaldo() - totalPrice);
                 order.setTotal(totalPrice);
                 System.out.println("order berhasil dibuat");
-               ((Customer) curUser).addPoints(totalPrice);
+                ((Customer) curUser).addPoints(totalPrice);
             } else if (opt2.equalsIgnoreCase("n")) {
                 System.out.println("pesanan dibatalkan");
             }

@@ -7,6 +7,8 @@ public class Order {
     private LinkedList<Produk> listProduct = new LinkedList<Produk>();
     private Boolean isDone;
     LocalDate date;
+    private Rating rating = new Rating();
+
     public Order(String custName, String sellerName,  String alamat) {
         this.custName = custName;
         this.sellerName = sellerName;
@@ -58,5 +60,12 @@ public class Order {
     }
     public void setIsDone(Boolean isDone) {
         this.isDone = isDone;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+    public Rating getRating() {
+        return rating;
     }
 }

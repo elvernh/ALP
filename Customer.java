@@ -22,6 +22,7 @@ public class Customer extends User {
             }else {
                 System.out.println("status : proses");
             }
+            System.out.println("rating : " + listOrder.get(i).getRating().getValue());
         }
     }
     public LinkedList<Order> getListOrder() {

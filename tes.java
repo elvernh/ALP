@@ -1,5 +1,6 @@
 public class tes {
     public static void main(String[] args) {
-        System.out.println(3200/10000);
+        Rating rating = new Rating();
+        System.out.println(rating.getValue());
     }
 }
