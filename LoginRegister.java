@@ -72,12 +72,13 @@ public class LoginRegister {
     public User register() {
         Scanner s = new Scanner(System.in);
         System.out.println("Please Register");
-        System.out.print("Username :");
+        System.out.print("Username : ");
         String uname = s.next();
         System.out.print("role :");
         System.out.println("pilih ");
         System.out.println("1. customer");
         System.out.println("2. seller");
+        System.out.print("pilih : ");
         int opt = s.nextInt();
         String role = "";
         if (opt == 1) {
@@ -85,7 +86,7 @@ public class LoginRegister {
         } else if (opt == 2) {
             role = "penjual";
         }
-        System.out.print("email :");
+        System.out.print("email : ");
         String email = s.next();
         System.out.print("Password : ");
         String pwd = s.next();

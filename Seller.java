@@ -80,4 +80,12 @@ public class Seller extends User {
             System.out.println("pesanan tidak jadi diproses");
         }      
     }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
+    }
+
+    public int getSaldo() {
+        return saldo;
+    }
 }

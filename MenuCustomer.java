@@ -16,7 +16,7 @@ public class MenuCustomer {
             System.out.println("");
             System.out.println("Main Menu");
             System.out.println("1. Pesan Makanan");
-            System.out.println("2. Lihat pesanan");
+            System.out.println("2. Lihat pesanan hari ini");
             System.out.println("3. Lihat history pemesanan");
             System.out.println("4. Lihat profil");
             System.out.println("5. Top up");
@@ -28,7 +28,7 @@ public class MenuCustomer {
             } else if (opt == 2) {
                 ((Customer) curUser).showOrder();
             } else if (opt == 3) {
-
+                ((Customer) curUser).showOrder();
             } else if (opt == 4) {
                 
             } else if (opt == 5) {

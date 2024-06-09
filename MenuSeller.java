@@ -11,6 +11,7 @@ public class MenuSeller {
             LocalDate date = LocalDate.now();
             System.out.println("tanggal : " + date);
             System.out.println("Jumlah Order hari ini : " + ((Seller) curUser).getListOrder().sizeQueue());
+            System.out.println("uang : " + ((Seller) curUser).getSaldo());
             System.out.println("Menu");
             System.out.println("[1] Tambah menu");
             System.out.println("[2] Lihat menu");
@@ -33,7 +34,23 @@ public class MenuSeller {
                 System.out.println("Update Menu");
                 System.out.println("=======================");
                 ((Seller) curUser).searchDetail();
-
+                System.out.print("pilih : ");
+                int pilih = sc.nextInt();
+                System.out.println("update : ");
+                System.out.println("1. nama");
+                System.out.println("2. deskripsi");
+                System.out.println("3. Kategori");
+                System.out.println("4. jumlah : ");
+                System.out.println("5. Harga : ");
+                System.out.print("pilih : ");
+                opt = sc.nextInt();
+                if(opt == 1) {
+                    System.out.print("Masukkan nama baru : ");
+                    String newName = sc.next() + sc.nextLine();
+                    updateNama(((Seller) curUser).getListProduct().get(pilih - 1), newName);
+                }else if (opt == 2) {
+                    System.out.println("Masukkan deskripsi baru : ");
+                }
             } else if (opt == 4) {
                 System.out.println("=======================");
                 System.out.println("Hapus Menu");
@@ -94,8 +111,9 @@ public class MenuSeller {
         System.out.println("Berhasil menambahkan data");
     }
 
-    public void updateMenu() {
-
+    public void updateNama(Produk produk, String newName) {
+        produk.setName(newName);
+        System.out.println("nama berhasil di update");
     }
 
     public void prosesOrder() {
